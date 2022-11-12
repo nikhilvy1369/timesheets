@@ -1,0 +1,9 @@
+SECONDS=0
+function calculateDuration() {
+  duration=$SECONDS
+  hh="$(printf '%03d' $((duration / 3600)))"
+  mm="$(printf '%02d' $(((duration / 60) % 60)))"
+  ss="$(printf '%02d' $((duration % 60)))"
+  ms="$(printf '%03d' $((duration / 60)))"
+  echo "$(TZ=":US/Eastern" date +"%F %I:%M %p") => $1 - TOTAL TIME TAKEN : $hh:$mm:$ss.$ms"
+}
